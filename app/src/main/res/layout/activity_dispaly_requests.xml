@@ -47,51 +47,53 @@
                 android:text="District"
                 android:textSize="12sp"
                 android:layout_marginEnd="5dp"/>
+
             <EditText
-                android:textAlignment="center"
-                android:padding="10dp"
-                android:textSize="12sp"
-                android:text="ALL"
                 android:id="@+id/districtFilterRequest"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/square_border"
                 android:imeActionLabel=""
                 android:imeOptions="actionDone"
                 android:inputType="textCapCharacters"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/square_border"/>
+                android:padding="10dp"
+                android:text="ALL"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
 
 
-
         <TextView
-            android:layout_below="@id/dist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:fontFamily="@font/varela_round"
-            android:text="If you can help them make CALL or SHARE."
+            android:layout_below="@id/dist"
             android:layout_alignParentBottom="true"
-            android:textAlignment="center"
-            android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
             android:layout_marginBottom="5dp"
-            android:focusableInTouchMode="true"
-            android:focusable="true"
-            android:contextClickable="true"
             android:layout_toStartOf="@id/more"
             android:clickable="true"
-            />
+            android:contextClickable="true"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/varela_round"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="If you can help them make CALL or SHARE."
+            android:textAlignment="center"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <ImageView
+            android:id="@+id/more"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/more"
-            android:onClick="popUp"
-            android:tooltipText="More"
-            android:src="@drawable/ic_baseline_more_vert_24"
+            android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
-            android:layout_alignParentEnd="true"/>
+            android:onClick="popUp"
+            android:src="@drawable/ic_baseline_more_vert_24"
+            android:tooltipText="More"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
     </RelativeLayout>
 
