@@ -70,7 +70,7 @@ public class RegisterIIIActivity extends AppCompatActivity {
             if (e instanceof FirebaseAuthInvalidCredentialsException) {
                textVerification.setText("Failed!");
             } else if (e instanceof FirebaseTooManyRequestsException) {
-                textVerification.setText("Message Quota Exceeded!\nTry Again After few Hours!");
+                textVerification.setText("Message Quota  Exceeded!\nTry Again After few Hours!");
             }
 
            mobile.setEnabled(true);
