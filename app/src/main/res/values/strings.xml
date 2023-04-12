@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BloodBankByVinayak</string>
+    <string name="app_name">RaktDaan</string>
 
     <string name="real_time_db_firebase">https://bloodbankbyvinayak-default-rtdb.firebaseio.com/</string>
 

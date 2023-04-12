@@ -54,41 +54,52 @@ public class RegisterIIIActivity extends AppCompatActivity {
         mobile = findViewById(R.id.mobileEditText);
         textVerification = findViewById(R.id.verificationText);
         submit = findViewById(R.id.btnVerifySubmit);
+
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addToDatabase();
+            }
+        });
+
     }
 
 
-    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-        @Override
-        public void onVerificationCompleted(PhoneAuthCredential credential) {
-            textVerification.setText("Verified ! ✔");
-            addToDatabase();
-        }
 
-        @Override
-        public void onVerificationFailed(FirebaseException e) {
 
-            if (e instanceof FirebaseAuthInvalidCredentialsException) {
-               textVerification.setText("Failed!");
-            } else if (e instanceof FirebaseTooManyRequestsException) {
-                textVerification.setText("Message Quota  Exceeded!\nTry Again After few Hours!");
-            }
-
-           mobile.setEnabled(true);
-
-        }
-
-        @Override
-        public void onCodeSent(@NonNull String verificationId,
-                               @NonNull PhoneAuthProvider.ForceResendingToken token) {
-
-            textVerification.setText("Enter OTP!");
-            submit.setText("Submit");
-            id = verificationId;
-            isSubmit = true;
-
-        }
-
-    };
+//    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+//        @Override
+//        public void onVerificationCompleted(PhoneAuthCredential credential) {
+//            textVerification.setText("Verified ! ✔");
+//            addToDatabase();
+//        }
+//
+//        @Override
+//        public void onVerificationFailed(FirebaseException e) {
+//
+//            if (e instanceof FirebaseAuthInvalidCredentialsException) {
+//               textVerification.setText("Failed!");
+//            } else if (e instanceof FirebaseTooManyRequestsException) {
+//                textVerification.setText("Message Quota  Exceeded!\nTry Again After few Hours!");
+//            }
+//
+//           mobile.setEnabled(true);
+//
+//        }
+//
+//        @Override
+//        public void onCodeSent(@NonNull String verificationId,
+//                               @NonNull PhoneAuthProvider.ForceResendingToken token) {
+//
+//            textVerification.setText("Enter OTP!");
+//            submit.setText("Submit");
+//            id = verificationId;
+//            isSubmit = true;
+//
+//        }
+//
+//    };
 
     private void addToDatabase() {
 
@@ -113,44 +124,44 @@ public class RegisterIIIActivity extends AppCompatActivity {
     }
 
 
-    public void verifyAndSubmit(View view) {
-
-        mobile.setEnabled(false);
-        if(!isSubmit) {
-            if (!isVerified && !mobile.getText().toString().isEmpty() && !bloodgrp.getText().toString().isEmpty()) {
-                PhoneAuthOptions options = PhoneAuthOptions.newBuilder(FirebaseAuth.getInstance())
-                        .setPhoneNumber("+91" + mobile.getText().toString())
-                        .setTimeout(60L, TimeUnit.SECONDS)
-                        .setActivity(RegisterIIIActivity.this)
-                        .setCallbacks(mCallbacks)
-                        .build();
-
-                PhoneAuthProvider.verifyPhoneNumber(options);
-                textVerification.setText("Verifying...");
-            }
-            if (mobile.getText().toString().isEmpty()) {
-                mobile.setError("Enter Mobile Number!");
-            }
-        }else {
-            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(id,textVerification.getText().toString());
-            FirebaseAuth.getInstance().getCurrentUser().linkWithCredential(credential)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                addToDatabase();
-                            }else {
-                                Toast.makeText(RegisterIIIActivity.this, "Error!\n"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                submit.setText("Verify");
-                                mobile.setEnabled(true);
-                                textVerification.setText("Not Verified!");
-                                isVerified = false;
-                                isSubmit = false;
-                            }
-                        }
-                    });
-        }
-
-
-    }
+//    public void verifyAndSubmit(View view) {
+//
+//        mobile.setEnabled(false);
+//        if(!isSubmit) {
+//            if (!isVerified && !mobile.getText().toString().isEmpty() && !bloodgrp.getText().toString().isEmpty()) {
+//                PhoneAuthOptions options = PhoneAuthOptions.newBuilder(FirebaseAuth.getInstance())
+//                        .setPhoneNumber("+91" + mobile.getText().toString())
+//                        .setTimeout(60L, TimeUnit.SECONDS)
+//                        .setActivity(RegisterIIIActivity.this)
+//                        .setCallbacks(mCallbacks)
+//                        .build();
+//
+//                PhoneAuthProvider.verifyPhoneNumber(options);
+//                textVerification.setText("Verifying...");
+//            }
+//            if (mobile.getText().toString().isEmpty()) {
+//                mobile.setError("Enter Mobile Number!");
+//            }
+//        }else {
+//            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(id,textVerification.getText().toString());
+//            FirebaseAuth.getInstance().getCurrentUser().linkWithCredential(credential)
+//                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<AuthResult> task) {
+//                            if(task.isSuccessful()){
+//                                addToDatabase();
+//                            }else {
+//                                Toast.makeText(RegisterIIIActivity.this, "Error!\n"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                                submit.setText("Verify");
+//                                mobile.setEnabled(true);
+//                                textVerification.setText("Not Verified!");
+//                                isVerified = false;
+//                                isSubmit = false;
+//                            }
+//                        }
+//                    });
+//        }
+//
+//
+//    }
 }
