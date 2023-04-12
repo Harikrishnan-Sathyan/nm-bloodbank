@@ -33,7 +33,7 @@ public class DispalyRequestsActivity extends AppCompatActivity {
     RecyclerView list;
     ArrayList<User>requests,temp;
     UserAdapter adapter;
-    EditText districtFilter;
+//    EditText districtFilter;
     User self;
     String uid = FirebaseAuth.getInstance().getUid();
     PopupMenu popupMenu;
