@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -51,6 +52,14 @@ public class DispalyRequestsActivity extends AppCompatActivity {
 
 
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.context_menu.menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+
+
 
 
     private void updateList(String toString) {

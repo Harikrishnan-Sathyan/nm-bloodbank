@@ -15,10 +15,10 @@
         android:theme="@style/Theme.RaktDaan">
         <activity android:name="com.example.bloodbankdemo.DisplayDonorsActivity"></activity>
         <activity android:name="com.example.bloodbankdemo.DispalyRequestsActivity" />
-        <activity android:name="com.example.bloodbankdemo.RegisterIIIActivity" />
-        <activity android:name="com.example.bloodbankdemo.RegisterIIActivity" />
+        <activity android:name="com.example.bloodbankdemo.RegisterIIIActivity"/>
+        <activity android:name="com.example.bloodbankdemo.RegisterIIActivity"/>
         <activity android:name="com.example.bloodbankdemo.RegisterIActivity" />
-        <activity android:name="com.example.bloodbankdemo.LoginScreenActivity" />
+        <activity android:name="com.example.bloodbankdemo.LoginScreenActivity"/>
         <activity
             android:name="com.example.bloodbankdemo.SplashScreen"
             android:theme="@style/Theme.RaktDaan"

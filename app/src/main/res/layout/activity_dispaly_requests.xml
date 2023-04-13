@@ -47,18 +47,19 @@
                 android:text="District"
                 android:textSize="12sp"
                 android:layout_marginEnd="5dp"/>
+
             <EditText
-                android:textAlignment="center"
-                android:padding="10dp"
-                android:textSize="12sp"
-                android:text="ALL"
                 android:id="@+id/districtFilterRequest"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/square_border"
+                android:hint="Search District"
                 android:imeActionLabel=""
                 android:imeOptions="actionDone"
                 android:inputType="textCapCharacters"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/square_border"/>
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
